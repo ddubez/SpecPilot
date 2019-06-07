@@ -398,7 +398,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5M6QHPHN6;
-				INFOPLIST_FILE = SpecPilot/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SpecPilot/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -416,7 +416,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5M6QHPHN6;
-				INFOPLIST_FILE = SpecPilot/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SpecPilot/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
