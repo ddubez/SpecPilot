@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		4F8116CB22AAF0DF00E5F8CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8116CA22AAF0DF00E5F8CA /* AppDelegate.swift */; };
-		4F8116CD22AAF0DF00E5F8CA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8116CC22AAF0DF00E5F8CA /* FirstViewController.swift */; };
-		4F8116CF22AAF0DF00E5F8CA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8116CE22AAF0DF00E5F8CA /* SecondViewController.swift */; };
 		4F8116D222AAF0DF00E5F8CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F8116D022AAF0DF00E5F8CA /* Main.storyboard */; };
 		4F8116D422AAF0E100E5F8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8116D322AAF0E100E5F8CA /* Assets.xcassets */; };
 		4F8116D722AAF0E100E5F8CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F8116D522AAF0E100E5F8CA /* LaunchScreen.storyboard */; };
 		4F8116E222AAF0E200E5F8CA /* SpecPilotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8116E122AAF0E200E5F8CA /* SpecPilotTests.swift */; };
+		4F8116F922AB196200E5F8CA /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8116F822AB196200E5F8CA /* InfoViewController.swift */; };
+		4F8116FB22AB199700E5F8CA /* DesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8116FA22AB199700E5F8CA /* DesignViewController.swift */; };
+		4F8116FD22AB19AF00E5F8CA /* PilotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8116FC22AB19AF00E5F8CA /* PilotViewController.swift */; };
+		4F8116FF22AD6A6900E5F8CA /* BLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8116FE22AD6A6900E5F8CA /* BLEService.swift */; };
+		4F81170122AEE23300E5F8CA /* BLEDiscoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F81170022AEE23300E5F8CA /* BLEDiscoveryService.swift */; };
+		4F81170422B0051E00E5F8CA /* DesignCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F81170322B0051E00E5F8CA /* DesignCalculation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,8 +33,6 @@
 /* Begin PBXFileReference section */
 		4F8116C722AAF0DF00E5F8CA /* SpecPilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpecPilot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8116CA22AAF0DF00E5F8CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F8116CC22AAF0DF00E5F8CA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		4F8116CE22AAF0DF00E5F8CA /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		4F8116D122AAF0DF00E5F8CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F8116D322AAF0E100E5F8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F8116D622AAF0E100E5F8CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +40,12 @@
 		4F8116DD22AAF0E200E5F8CA /* SpecPilotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpecPilotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8116E122AAF0E200E5F8CA /* SpecPilotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecPilotTests.swift; sourceTree = "<group>"; };
 		4F8116E322AAF0E200E5F8CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F8116F822AB196200E5F8CA /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		4F8116FA22AB199700E5F8CA /* DesignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignViewController.swift; sourceTree = "<group>"; };
+		4F8116FC22AB19AF00E5F8CA /* PilotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotViewController.swift; sourceTree = "<group>"; };
+		4F8116FE22AD6A6900E5F8CA /* BLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BLEService.swift; path = SpecPilot/Controller/BLEService.swift; sourceTree = SOURCE_ROOT; };
+		4F81170022AEE23300E5F8CA /* BLEDiscoveryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BLEDiscoveryService.swift; path = SpecPilot/Controller/BLEDiscoveryService.swift; sourceTree = SOURCE_ROOT; };
+		4F81170322B0051E00E5F8CA /* DesignCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DesignCalculation.swift; path = SpecPilot/Controller/DesignCalculation.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,9 @@
 		4F8116EC22AAF12200E5F8CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4F8116FE22AD6A6900E5F8CA /* BLEService.swift */,
+				4F81170022AEE23300E5F8CA /* BLEDiscoveryService.swift */,
+				4F81170322B0051E00E5F8CA /* DesignCalculation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -115,8 +126,9 @@
 		4F8116EE22AAF14200E5F8CA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4F8116CC22AAF0DF00E5F8CA /* FirstViewController.swift */,
-				4F8116CE22AAF0DF00E5F8CA /* SecondViewController.swift */,
+				4F8116F822AB196200E5F8CA /* InfoViewController.swift */,
+				4F8116FC22AB19AF00E5F8CA /* PilotViewController.swift */,
+				4F8116FA22AB199700E5F8CA /* DesignViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -141,6 +153,7 @@
 				4F8116C322AAF0DF00E5F8CA /* Sources */,
 				4F8116C422AAF0DF00E5F8CA /* Frameworks */,
 				4F8116C522AAF0DF00E5F8CA /* Resources */,
+				4F81170222AEE3AD00E5F8CA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -227,14 +240,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4F81170222AEE3AD00E5F8CA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4F8116C322AAF0DF00E5F8CA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F8116CF22AAF0DF00E5F8CA /* SecondViewController.swift in Sources */,
+				4F8116FB22AB199700E5F8CA /* DesignViewController.swift in Sources */,
+				4F81170422B0051E00E5F8CA /* DesignCalculation.swift in Sources */,
+				4F8116FF22AD6A6900E5F8CA /* BLEService.swift in Sources */,
+				4F81170122AEE23300E5F8CA /* BLEDiscoveryService.swift in Sources */,
 				4F8116CB22AAF0DF00E5F8CA /* AppDelegate.swift in Sources */,
-				4F8116CD22AAF0DF00E5F8CA /* FirstViewController.swift in Sources */,
+				4F8116F922AB196200E5F8CA /* InfoViewController.swift in Sources */,
+				4F8116FD22AB19AF00E5F8CA /* PilotViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
