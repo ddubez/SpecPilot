@@ -115,3 +115,4 @@ class BLEService: NSObject, CBPeripheralDelegate {
 
 // TODO:    - tests à faire
 //          - Voir problème com
+// TODO:    - Verif comportement gitignore

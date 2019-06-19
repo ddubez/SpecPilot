@@ -12,7 +12,8 @@ import CoreBluetooth
 class PilotViewController: UIViewController {
 
     // MARK: - IBOutlet
-    @IBOutlet weak var revolutionSpeedScraperOneSlider: UISlider!
+    @IBOutlet weak var setupButtonItem: UIBarButtonItem!
+
     @IBOutlet weak var connectedStatusImage: UIImageView!
 
     // MARK: - IBAction
@@ -28,6 +29,7 @@ class PilotViewController: UIViewController {
     // MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
+
         connectedStatusImage.image = UIImage(named: "Disconnected")
 
         // Watch Bluetooth connection
@@ -57,7 +59,8 @@ class PilotViewController: UIViewController {
         self.stopTimerTXDelay()
 
         // Send current slider position
-        self.sendPosition(UInt8(self.revolutionSpeedScraperOneSlider.value))
+//        self.sendPosition(UInt8(self.revolutionSpeedScraperOneSlider.value))
+        
     }
 
     func sendPosition(_ position: UInt8) {
@@ -109,7 +112,7 @@ class PilotViewController: UIViewController {
                     self.connectedStatusImage.image = UIImage(named: "Connected")
 
                     // Send current slider position
-                    self.sendPosition(UInt8( self.revolutionSpeedScraperOneSlider.value))
+//                    self.sendPosition(UInt8( self.revolutionSpeedScraperOneSlider.value))
                 } else {
                     self.connectedStatusImage.image = UIImage(named: "Disconnected")
                 }
@@ -118,4 +121,5 @@ class PilotViewController: UIViewController {
     }
 }
 
-// TODO: gestion du clavier
+// TODO:    - gestion du clavier
+//           - envoie position

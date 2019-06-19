@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F35762722BA1285006A619A /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F35762622BA1285006A619A /* SetupViewController.swift */; };
+		4F35762922BA194A006A619A /* PilotSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F35762822BA194A006A619A /* PilotSetting.swift */; };
 		4F8116CB22AAF0DF00E5F8CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8116CA22AAF0DF00E5F8CA /* AppDelegate.swift */; };
 		4F8116D222AAF0DF00E5F8CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F8116D022AAF0DF00E5F8CA /* Main.storyboard */; };
 		4F8116D422AAF0E100E5F8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8116D322AAF0E100E5F8CA /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F35762622BA1285006A619A /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
+		4F35762822BA194A006A619A /* PilotSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PilotSetting.swift; path = SpecPilot/Controller/PilotSetting.swift; sourceTree = SOURCE_ROOT; };
 		4F8116C722AAF0DF00E5F8CA /* SpecPilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpecPilot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8116CA22AAF0DF00E5F8CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F8116D122AAF0DF00E5F8CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 				4F8116FE22AD6A6900E5F8CA /* BLEService.swift */,
 				4F81170022AEE23300E5F8CA /* BLEDiscoveryService.swift */,
 				4F81170322B0051E00E5F8CA /* DesignCalculation.swift */,
+				4F35762822BA194A006A619A /* PilotSetting.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 			children = (
 				4F8116F822AB196200E5F8CA /* InfoViewController.swift */,
 				4F8116FC22AB19AF00E5F8CA /* PilotViewController.swift */,
+				4F35762622BA1285006A619A /* SetupViewController.swift */,
 				4F8116FA22AB199700E5F8CA /* DesignViewController.swift */,
 			);
 			path = Controller;
@@ -269,7 +275,9 @@
 				4F81170422B0051E00E5F8CA /* DesignCalculation.swift in Sources */,
 				4F8116FF22AD6A6900E5F8CA /* BLEService.swift in Sources */,
 				4F81170122AEE23300E5F8CA /* BLEDiscoveryService.swift in Sources */,
+				4F35762722BA1285006A619A /* SetupViewController.swift in Sources */,
 				4F8116CB22AAF0DF00E5F8CA /* AppDelegate.swift in Sources */,
+				4F35762922BA194A006A619A /* PilotSetting.swift in Sources */,
 				4F8116F922AB196200E5F8CA /* InfoViewController.swift in Sources */,
 				4F8116FD22AB19AF00E5F8CA /* PilotViewController.swift in Sources */,
 			);
@@ -443,7 +451,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.daviddubez.SpecPilot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -461,7 +469,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.daviddubez.SpecPilot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
