@@ -8,23 +8,48 @@
 
 import Foundation
 
-class DesignCalculation {
+struct DesignCalculation {
     // MARK: - Properties
-    var massLoadInKg: Double = 0
-    var effluentsDcoInmgl: Double = 0
-    var effluentsDcoDbo: Double = 0
-    var effluentsVolumeInL: Double = 0
-    var effluentsDboInMgl: Double = 0
-    var mudSMInGl: Double = 0
-    var mudMVSInPercent: Double = 0
-    var mudVolumeInL: Double = 0
-    var reactorMass: Double = 0
-    var mudDcoInMgl: Double = 0
+    var massLoadInKg: Double?
+    var effluentsDcoInmgl: Double?
+    var effluentsDcoDbo: Double?
+    var mudSMInGl: Double?
+    var mudMVSInPercent: Double?
+    var mudVolumeInL: Double?
+    var mudDcoInMgl: Double?
 
-    // MARK: - Methods
-    func calculate() {
-        reactorMass = mudSMInGl * mudMVSInPercent * mudVolumeInL
-        effluentsDboInMgl = effluentsDcoInmgl / effluentsDcoDbo
-        effluentsVolumeInL = (massLoadInKg * reactorMass * 1000) / effluentsDboInMgl
+    var reactorMass: Double? {
+        guard let mudSMInGlValue = mudSMInGl else {
+            return nil
+        }
+        guard let mudMVSInPercentValue = mudMVSInPercent else {
+            return nil
+        }
+        guard let mudVolumeInLValue = mudVolumeInL else {
+            return nil
+        }
+        return mudSMInGlValue * mudMVSInPercentValue * mudVolumeInLValue / 100
+    }
+    var effluentsDboInMgl: Double? {
+        guard let effluentsDcoInmglValue = effluentsDcoInmgl else {
+            return nil
+        }
+        guard let effluentsDcoDboValue = effluentsDcoDbo else {
+            return nil
+        }
+        return effluentsDcoInmglValue / effluentsDcoDboValue
+    }
+    var effluentsVolumeInL: Double? {
+        guard let massLoadInKgValue = massLoadInKg else {
+            return nil
+        }
+        guard let reactorMassValue = reactorMass else {
+            return nil
+        }
+        guard let effluentsDboInMglValue = effluentsDboInMgl else {
+            return nil
+        }
+        return (massLoadInKgValue * reactorMassValue * 1000) / effluentsDboInMglValue
     }
 }
+// TODO: tests à faire

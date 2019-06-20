@@ -25,7 +25,6 @@ class DesignViewController: UIViewController {
     // MARK: - IBAction
     @IBAction func didTapCalculation(_ sender: UIButton) {
         catchValues()
-        designCalculation.calculate()
         updateValues()
     }
 
@@ -52,19 +51,55 @@ class DesignViewController: UIViewController {
 
     // MARK: - Functions
     private func catchValues() {
-        designCalculation.massLoadInKg = Double( massLoadInKgTextField.text!) ?? 0
-        designCalculation.effluentsDcoInmgl = Double( effluentsDcoInmglTextField.text!) ?? 0
-        designCalculation.effluentsDcoDbo = Double( effluentsDcoDboTextField.text!) ?? 0
-        designCalculation.mudSMInGl = Double( mudSMInGlTextField.text!) ?? 0
-        designCalculation.mudMVSInPercent = Double( mudMVSInPercentTextField.text!) ?? 0
-        designCalculation.mudVolumeInL = Double( mudVolumeInLTextField.text!) ?? 0
-        designCalculation.mudDcoInMgl = Double( mudDcoInMglTextField.text!) ?? 0
+        designCalculation.massLoadInKg = convertTextInValue(massLoadInKgTextField.text!)
+        designCalculation.effluentsDcoInmgl = convertTextInValue(effluentsDcoInmglTextField.text!)
+        designCalculation.effluentsDcoDbo = convertTextInValue(effluentsDcoDboTextField.text!)
+        designCalculation.mudSMInGl = convertTextInValue(mudSMInGlTextField.text!)
+        designCalculation.mudMVSInPercent = convertTextInValue(mudMVSInPercentTextField.text!)
+        designCalculation.mudVolumeInL = convertTextInValue(mudVolumeInLTextField.text!)
+        designCalculation.mudDcoInMgl = convertTextInValue(mudDcoInMglTextField.text!)
     }
 
     private func updateValues() {
-        effluentsVolumeInLLabel.text = String(designCalculation.effluentsVolumeInL)
-        effluentsDboInMglLabel.text = String(designCalculation.effluentsDboInMgl)
-        reactorMassMVSLabel.text = String(designCalculation.reactorMass)
+        if let designCalculationEffluentsDboInMgl = designCalculation.effluentsDboInMgl {
+            effluentsDboInMglLabel.text = formatDiplayedNumber(designCalculationEffluentsDboInMgl)
+        } else {
+            effluentsDboInMglLabel.text = "-"
+        }
+
+        if let designCalculationReactorMass = designCalculation.reactorMass {
+            reactorMassMVSLabel.text = formatDiplayedNumber(designCalculationReactorMass)
+        } else {
+            reactorMassMVSLabel.text = "-"
+        }
+
+        if let designCalculationEffluentsVolumeInL = designCalculation.effluentsVolumeInL {
+            effluentsVolumeInLLabel.text = formatDiplayedNumber(designCalculationEffluentsVolumeInL)
+        } else {
+            effluentsVolumeInLLabel.text = "-"
+        }
+    }
+
+    private func formatDiplayedNumber(_ number: Double) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+
+        if let formattedNumber = formatter.string(from: NSNumber(value: number)) {
+            return formattedNumber
+        } else {
+            return nil
+        }
+    }
+
+    private func convertTextInValue(_ text: String) -> Double? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+
+        if let formattedNumber = formatter.number(from: text) {
+            return Double(truncating: formattedNumber)
+        } else {
+            return nil
+        }
     }
 }
 
