@@ -17,7 +17,7 @@ class PilotViewController: UIViewController {
     @IBOutlet weak var transfertActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var sendSettingButton: UIButton!
     @IBOutlet weak var readSettingButton: UIButton!
-    
+
     @IBOutlet weak var feedPumpCycleTimeLabel: UILabel!
     @IBOutlet weak var feedPumpCycleTimeSlider: UISlider!
     @IBOutlet weak var feedPumpOnTimeLabel: UILabel!
