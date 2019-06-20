@@ -13,24 +13,82 @@ class PilotViewController: UIViewController {
 
     // MARK: - IBOutlet
     @IBOutlet weak var setupButtonItem: UIBarButtonItem!
-
     @IBOutlet weak var connectedStatusImage: UIImageView!
+    @IBOutlet weak var transfertActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var sendSettingButton: UIButton!
+    @IBOutlet weak var readSettingButton: UIButton!
+    
+    @IBOutlet weak var feedPumpCycleTimeLabel: UILabel!
+    @IBOutlet weak var feedPumpCycleTimeSlider: UISlider!
+    @IBOutlet weak var feedPumpOnTimeLabel: UILabel!
+    @IBOutlet weak var feedPumpOnTimeSlider: UISlider!
+    @IBOutlet weak var feedPumpTotalTimeLabel: UILabel!
+    @IBOutlet weak var feedPumpDailyVolumeLabel: UILabel!
+
+    @IBOutlet weak var recyclPumpCycleTimeLabel: UILabel!
+    @IBOutlet weak var recyclPumpCycleTimeSlider: UISlider!
+    @IBOutlet weak var recyclPumpOnTimeLabel: UILabel!
+    @IBOutlet weak var recyclPumpOnTimeSlider: UISlider!
+    @IBOutlet weak var recyclPumpTotalTimeLabel: UILabel!
+    @IBOutlet weak var recirculationRateLabel: UILabel!
+
+    @IBOutlet weak var scraperRotationSpeedLabel: UILabel!
+    @IBOutlet weak var scraperRotationSpeedSlider: UISlider!
+    @IBOutlet weak var scraperPauseTimeLabel: UILabel!
+    @IBOutlet weak var scraperPauseTimeSlider: UISlider!
 
     // MARK: - IBAction
-    @IBAction func revolutionSpeedScraperOneSliderChanged(_ sender: UISlider) {
-        self.sendPosition(UInt8(sender.value))
+    @IBAction func didTapSendSettingsButton(_ sender: UIButton) {
+        testToggle()
+    }
+    @IBAction func didTapReadSettingsButton(_ sender: UIButton) {
+        testToggle()
+    }
+    @IBAction func feedPumpCycleTimeValueChanged(_ sender: UISlider) {
+        pilot.feedPump.cycleTimeInS = Double(feedPumpCycleTimeSlider.value.rounded()) * 30
+        if pilot.feedPump.onTimeInS > pilot.feedPump.cycleTimeInS {
+            pilot.feedPump.onTimeInS = pilot.feedPump.cycleTimeInS
+        }
+        feedPumpOnTimeSlider.maximumValue = feedPumpCycleTimeSlider.value.rounded()
+        updateView()
+    }
+    @IBAction func feedPumpOnTimeValueChanged(_ sender: UISlider) {
+        pilot.feedPump.onTimeInS = Double(feedPumpOnTimeSlider.value.rounded()) * 30
+        updateView()
+    }
+    @IBAction func recyclPumpCycleTimeValueChanged(_ sender: UISlider) {
+        pilot.recyclPump.cycleTimeInS = Double(recyclPumpCycleTimeSlider.value.rounded()) * 30
+        if pilot.recyclPump.onTimeInS > pilot.recyclPump.cycleTimeInS {
+            pilot.recyclPump.onTimeInS = pilot.recyclPump.cycleTimeInS
+        }
+        recyclPumpOnTimeSlider.maximumValue = recyclPumpCycleTimeSlider.value.rounded()
+        updateView()
+    }
+    @IBAction func recyclPumpOnTimeValueChanged(_ sender: UISlider) {
+        pilot.recyclPump.onTimeInS = Double(recyclPumpOnTimeSlider.value.rounded()) * 30
+        updateView()
+    }
+    @IBAction func scraperRotationSpeedValueChanged(_ sender: UISlider) {
+        pilot.scraper.rotationSpeedInRpm = Double(scraperRotationSpeedSlider.value.rounded())
+        updateView()
+    }
+    @IBAction func scraperPauseTimeValueChanged(_ sender: UISlider) {
+        pilot.scraper.pauseTimeInS = Double(scraperPauseTimeSlider.value.rounded()) * 30
+        updateView()
     }
 
     // MARK: - Properties
     var timerTXDelay: Timer?
     var allowTX = true
     var lastPosition: UInt8 = 255
+    var pilot = Pilot(name: "Pilote Spec")
 
     // MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
         connectedStatusImage.image = UIImage(named: "Disconnected")
+        toggleCommunicationButtons(communicating: false)
 
         // Watch Bluetooth connection
         NotificationCenter.default.addObserver(self,
@@ -48,22 +106,64 @@ class PilotViewController: UIViewController {
                                             object: nil)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateView()
+    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.stopTimerTXDelay()
     }
 
     // MARK: - Functions
+
+    private func updateView() {
+        feedPumpCycleTimeLabel.text = String(pilot.feedPump.cycleTimeInS) + " s"
+        feedPumpCycleTimeSlider.value = Float(pilot.feedPump.cycleTimeInS / 30)
+        feedPumpOnTimeLabel.text = String(pilot.feedPump.onTimeInS) + " s"
+        feedPumpOnTimeSlider.value = Float(pilot.feedPump.onTimeInS / 30)
+        feedPumpTotalTimeLabel.text = String(pilot.feedPump.dailyTotalTimeInH) + " h"
+        feedPumpDailyVolumeLabel.text = String(pilot.feedPump.dailyVolumeInL) + " l"
+
+        recyclPumpCycleTimeLabel.text = String(pilot.recyclPump.cycleTimeInS) + " s"
+        recyclPumpCycleTimeSlider.value = Float(pilot.recyclPump.cycleTimeInS / 30)
+        recyclPumpOnTimeLabel.text = String(pilot.recyclPump.onTimeInS) + " s"
+        recyclPumpOnTimeSlider.value = Float(pilot.recyclPump.onTimeInS / 30)
+        recyclPumpTotalTimeLabel.text = String(pilot.recyclPump.dailyTotalTimeInH) + " h"
+        recirculationRateLabel.text = String(pilot.recirculationRate) + " %"
+
+        scraperRotationSpeedLabel.text = String(pilot.scraper.rotationSpeedInRpm) + " t/min"
+        scraperRotationSpeedSlider.value = Float(pilot.scraper.rotationSpeedInRpm)
+        scraperPauseTimeLabel.text = String(pilot.scraper.pauseTimeInS) + " s"
+        scraperPauseTimeSlider.value = Float(pilot.scraper.pauseTimeInS / 30)
+    }
+
+    private func toggleCommunicationButtons(communicating: Bool) {
+        transfertActivityIndicator.isHidden = !communicating
+        sendSettingButton.isHidden = communicating
+        readSettingButton.isHidden = communicating
+    }
+}
+
+// MARK: - Navigation
+extension PilotViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToSetup" {
+            if let setupVC = segue.destination as? SetupViewController {
+                setupVC.pilot = pilot
+            }
+        }
+    }
+}
+// MARK: - BLE manager
+extension PilotViewController {
     @objc func timerTXDelayElapsed() {
         self.allowTX = true
         self.stopTimerTXDelay()
-
-        // Send current slider position
-//        self.sendPosition(UInt8(self.revolutionSpeedScraperOneSlider.value))
-        
+        self.toggleCommunicationButtons(communicating: false)
     }
 
-    func sendPosition(_ position: UInt8) {
+    func sendSettings(_ position: UInt8) {
         if !allowTX {
             return
         }
@@ -75,7 +175,8 @@ class PilotViewController: UIViewController {
         }
 
         if let bleService = bleDiscoverySharedInstance.bleService {
-          print("sendposition")
+            toggleCommunicationButtons(communicating: true)
+            print("sendposition")
             bleService.writePosition(position)
             lastPosition = position
 
@@ -87,6 +188,20 @@ class PilotViewController: UIViewController {
                                                     userInfo: nil,
                                                     repeats: false)
             }
+        }
+    }
+
+    func testToggle() {
+        if !allowTX {
+            return
+        }
+        toggleCommunicationButtons(communicating: true)
+        if timerTXDelay == nil {
+            timerTXDelay = Timer.scheduledTimer(timeInterval: 1.0,
+                                                target: self,
+                                                selector: #selector(PilotViewController.timerTXDelayElapsed),
+                                                userInfo: nil,
+                                                repeats: false)
         }
     }
 
@@ -112,7 +227,7 @@ class PilotViewController: UIViewController {
                     self.connectedStatusImage.image = UIImage(named: "Connected")
 
                     // Send current slider position
-//                    self.sendPosition(UInt8( self.revolutionSpeedScraperOneSlider.value))
+                    //                    self.sendPosition(UInt8( self.revolutionSpeedScraperOneSlider.value))
                 } else {
                     self.connectedStatusImage.image = UIImage(named: "Disconnected")
                 }
@@ -120,6 +235,5 @@ class PilotViewController: UIViewController {
         })
     }
 }
-
-// TODO:    - gestion du clavier
-//           - envoie position
+// TODO:    - envoie position
+//          - supprimer le testToggle et test avec le toggle avec l'envoie des reglages

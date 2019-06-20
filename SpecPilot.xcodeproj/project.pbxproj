@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4F35762722BA1285006A619A /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F35762622BA1285006A619A /* SetupViewController.swift */; };
-		4F35762922BA194A006A619A /* PilotSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F35762822BA194A006A619A /* PilotSetting.swift */; };
+		4F35762B22BAC55A006A619A /* Pilot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F35762A22BAC55A006A619A /* Pilot.swift */; };
+		4F35762D22BAC5A4006A619A /* Pump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F35762C22BAC5A4006A619A /* Pump.swift */; };
+		4F35762F22BAC773006A619A /* GearMotor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F35762E22BAC773006A619A /* GearMotor.swift */; };
+		4F35763522BB6B64006A619A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F35763422BB6B64006A619A /* UIViewController+Extension.swift */; };
 		4F8116CB22AAF0DF00E5F8CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8116CA22AAF0DF00E5F8CA /* AppDelegate.swift */; };
 		4F8116D222AAF0DF00E5F8CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F8116D022AAF0DF00E5F8CA /* Main.storyboard */; };
 		4F8116D422AAF0E100E5F8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8116D322AAF0E100E5F8CA /* Assets.xcassets */; };
@@ -34,7 +37,10 @@
 
 /* Begin PBXFileReference section */
 		4F35762622BA1285006A619A /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
-		4F35762822BA194A006A619A /* PilotSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PilotSetting.swift; path = SpecPilot/Controller/PilotSetting.swift; sourceTree = SOURCE_ROOT; };
+		4F35762A22BAC55A006A619A /* Pilot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pilot.swift; path = SpecPilot/Model/Pilot/Pilot.swift; sourceTree = SOURCE_ROOT; };
+		4F35762C22BAC5A4006A619A /* Pump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pump.swift; path = SpecPilot/Model/Pilot/Pump.swift; sourceTree = SOURCE_ROOT; };
+		4F35762E22BAC773006A619A /* GearMotor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GearMotor.swift; path = SpecPilot/Model/Pilot/GearMotor.swift; sourceTree = SOURCE_ROOT; };
+		4F35763422BB6B64006A619A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		4F8116C722AAF0DF00E5F8CA /* SpecPilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpecPilot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8116CA22AAF0DF00E5F8CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F8116D122AAF0DF00E5F8CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,9 +53,9 @@
 		4F8116F822AB196200E5F8CA /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4F8116FA22AB199700E5F8CA /* DesignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignViewController.swift; sourceTree = "<group>"; };
 		4F8116FC22AB19AF00E5F8CA /* PilotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotViewController.swift; sourceTree = "<group>"; };
-		4F8116FE22AD6A6900E5F8CA /* BLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BLEService.swift; path = SpecPilot/Controller/BLEService.swift; sourceTree = SOURCE_ROOT; };
-		4F81170022AEE23300E5F8CA /* BLEDiscoveryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BLEDiscoveryService.swift; path = SpecPilot/Controller/BLEDiscoveryService.swift; sourceTree = SOURCE_ROOT; };
-		4F81170322B0051E00E5F8CA /* DesignCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DesignCalculation.swift; path = SpecPilot/Controller/DesignCalculation.swift; sourceTree = SOURCE_ROOT; };
+		4F8116FE22AD6A6900E5F8CA /* BLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BLEService.swift; path = SpecPilot/Model/BLE/BLEService.swift; sourceTree = SOURCE_ROOT; };
+		4F81170022AEE23300E5F8CA /* BLEDiscoveryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BLEDiscoveryService.swift; path = SpecPilot/Model/BLE/BLEDiscoveryService.swift; sourceTree = SOURCE_ROOT; };
+		4F81170322B0051E00E5F8CA /* DesignCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DesignCalculation.swift; path = SpecPilot/Model/Pilot/DesignCalculation.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F35763022BB6A64006A619A /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				4F8116FE22AD6A6900E5F8CA /* BLEService.swift */,
+				4F81170022AEE23300E5F8CA /* BLEDiscoveryService.swift */,
+			);
+			path = BLE;
+			sourceTree = "<group>";
+		};
+		4F35763122BB6A73006A619A /* Pilot */ = {
+			isa = PBXGroup;
+			children = (
+				4F81170322B0051E00E5F8CA /* DesignCalculation.swift */,
+				4F35762A22BAC55A006A619A /* Pilot.swift */,
+				4F35762E22BAC773006A619A /* GearMotor.swift */,
+				4F35762C22BAC5A4006A619A /* Pump.swift */,
+			);
+			path = Pilot;
+			sourceTree = "<group>";
+		};
+		4F35763322BB6A9E006A619A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		4F8116BE22AAF0DF00E5F8CA = {
 			isa = PBXGroup;
 			children = (
@@ -111,10 +144,9 @@
 		4F8116EC22AAF12200E5F8CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4F8116FE22AD6A6900E5F8CA /* BLEService.swift */,
-				4F81170022AEE23300E5F8CA /* BLEDiscoveryService.swift */,
-				4F81170322B0051E00E5F8CA /* DesignCalculation.swift */,
-				4F35762822BA194A006A619A /* PilotSetting.swift */,
+				4F35763322BB6A9E006A619A /* Service */,
+				4F35763122BB6A73006A619A /* Pilot */,
+				4F35763022BB6A64006A619A /* BLE */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				4F8116F822AB196200E5F8CA /* InfoViewController.swift */,
+				4F35763422BB6B64006A619A /* UIViewController+Extension.swift */,
 				4F8116FC22AB19AF00E5F8CA /* PilotViewController.swift */,
 				4F35762622BA1285006A619A /* SetupViewController.swift */,
 				4F8116FA22AB199700E5F8CA /* DesignViewController.swift */,
@@ -273,11 +306,14 @@
 			files = (
 				4F8116FB22AB199700E5F8CA /* DesignViewController.swift in Sources */,
 				4F81170422B0051E00E5F8CA /* DesignCalculation.swift in Sources */,
+				4F35762F22BAC773006A619A /* GearMotor.swift in Sources */,
 				4F8116FF22AD6A6900E5F8CA /* BLEService.swift in Sources */,
 				4F81170122AEE23300E5F8CA /* BLEDiscoveryService.swift in Sources */,
 				4F35762722BA1285006A619A /* SetupViewController.swift in Sources */,
 				4F8116CB22AAF0DF00E5F8CA /* AppDelegate.swift in Sources */,
-				4F35762922BA194A006A619A /* PilotSetting.swift in Sources */,
+				4F35762B22BAC55A006A619A /* Pilot.swift in Sources */,
+				4F35763522BB6B64006A619A /* UIViewController+Extension.swift in Sources */,
+				4F35762D22BAC5A4006A619A /* Pump.swift in Sources */,
 				4F8116F922AB196200E5F8CA /* InfoViewController.swift in Sources */,
 				4F8116FD22AB19AF00E5F8CA /* PilotViewController.swift in Sources */,
 			);

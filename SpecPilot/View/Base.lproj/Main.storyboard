@@ -84,10 +84,10 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNI-lL-6eW">
                                                         <rect key="frame" x="0.0" y="70" width="335" height="35"/>
                                                         <subviews>
-                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="t24-4a-fgV">
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="t24-4a-fgV">
                                                                 <rect key="frame" x="-2" y="0.0" width="339" height="36"/>
                                                                 <connections>
-                                                                    <action selector="revolutionSpeedScraperOneSliderChanged:" destination="IBc-oN-hUK" eventType="valueChanged" id="QeF-7D-vLL"/>
+                                                                    <action selector="feedPumpCycleTimeValueChanged:" destination="IBc-oN-hUK" eventType="valueChanged" id="oyx-Sw-kFe"/>
                                                                 </connections>
                                                             </slider>
                                                         </subviews>
@@ -118,10 +118,10 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNt-8Q-h7h">
                                                         <rect key="frame" x="0.0" y="140" width="335" height="35"/>
                                                         <subviews>
-                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="xa9-dz-hCh">
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="xa9-dz-hCh">
                                                                 <rect key="frame" x="-2" y="0.0" width="339" height="36"/>
                                                                 <connections>
-                                                                    <action selector="revolutionSpeedScraperOneSliderChanged:" destination="IBc-oN-hUK" eventType="valueChanged" id="Xq0-1t-E9b"/>
+                                                                    <action selector="feedPumpOnTimeValueChanged:" destination="IBc-oN-hUK" eventType="valueChanged" id="zuU-Ri-5I9"/>
                                                                 </connections>
                                                             </slider>
                                                         </subviews>
@@ -212,10 +212,10 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzB-x4-lEj">
                                                         <rect key="frame" x="0.0" y="70" width="335" height="35"/>
                                                         <subviews>
-                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="kD9-9t-RIX">
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="kD9-9t-RIX">
                                                                 <rect key="frame" x="-2" y="0.0" width="339" height="36"/>
                                                                 <connections>
-                                                                    <action selector="revolutionSpeedScraperOneSliderChanged:" destination="IBc-oN-hUK" eventType="valueChanged" id="zTT-e1-gxW"/>
+                                                                    <action selector="recyclPumpCycleTimeValueChanged:" destination="IBc-oN-hUK" eventType="valueChanged" id="Jzs-8K-5PU"/>
                                                                 </connections>
                                                             </slider>
                                                         </subviews>
@@ -246,10 +246,10 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLp-yi-sD4">
                                                         <rect key="frame" x="0.0" y="140" width="335" height="35"/>
                                                         <subviews>
-                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="gfr-kl-Bq6">
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="gfr-kl-Bq6">
                                                                 <rect key="frame" x="-2" y="0.0" width="339" height="36"/>
                                                                 <connections>
-                                                                    <action selector="revolutionSpeedScraperOneSliderChanged:" destination="IBc-oN-hUK" eventType="valueChanged" id="03N-8q-3za"/>
+                                                                    <action selector="recyclPumpOnTimeValueChanged:" destination="IBc-oN-hUK" eventType="valueChanged" id="KdS-To-rCv"/>
                                                                 </connections>
                                                             </slider>
                                                         </subviews>
@@ -320,8 +320,8 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Njf-xz-jNy">
                                                         <rect key="frame" x="0.0" y="35" width="335" height="35"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vitesse de rotatiion moteur :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAD-q8-wnj">
-                                                                <rect key="frame" x="0.0" y="0.0" width="215.5" height="35"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vitesse de rotation moteur :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAD-q8-wnj">
+                                                                <rect key="frame" x="0.0" y="0.0" width="211.5" height="35"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -343,7 +343,7 @@
                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Fhz-ya-zz6">
                                                                 <rect key="frame" x="-2" y="0.0" width="339" height="36"/>
                                                                 <connections>
-                                                                    <action selector="revolutionSpeedScraperOneSliderChanged:" destination="IBc-oN-hUK" eventType="valueChanged" id="G2t-ST-7gm"/>
+                                                                    <action selector="scraperRotationSpeedValueChanged:" destination="IBc-oN-hUK" eventType="valueChanged" id="Ave-HO-Dih"/>
                                                                 </connections>
                                                             </slider>
                                                         </subviews>
@@ -374,10 +374,10 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJG-ab-1fS">
                                                         <rect key="frame" x="0.0" y="140" width="335" height="35"/>
                                                         <subviews>
-                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="2gC-bz-NRX">
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="2gC-bz-NRX">
                                                                 <rect key="frame" x="-2" y="0.0" width="339" height="36"/>
                                                                 <connections>
-                                                                    <action selector="revolutionSpeedScraperOneSliderChanged:" destination="IBc-oN-hUK" eventType="valueChanged" id="3Lk-51-JLd"/>
+                                                                    <action selector="scraperPauseTimeValueChanged:" destination="IBc-oN-hUK" eventType="valueChanged" id="qC2-m7-ofY"/>
                                                                 </connections>
                                                             </slider>
                                                         </subviews>
@@ -408,12 +408,18 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FxM-TL-fXe">
                                                         <rect key="frame" x="0.0" y="45" width="335" height="60"/>
                                                         <subviews>
+                                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="F86-vm-UzP">
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="60"/>
+                                                            </activityIndicatorView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAf-xP-Q2s">
                                                                 <rect key="frame" x="0.0" y="0.0" width="157.5" height="60"/>
                                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <state key="normal" title="Envoi Reglages">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="didTapSendSettingsButton:" destination="IBc-oN-hUK" eventType="touchUpInside" id="RHE-va-h6c"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqt-Af-VNm">
                                                                 <rect key="frame" x="177.5" y="0.0" width="157.5" height="60"/>
@@ -421,6 +427,9 @@
                                                                 <state key="normal" title="Lire config">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="didTapReadSettingsButton:" destination="IBc-oN-hUK" eventType="touchUpInside" id="171-e9-yUw"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -464,14 +473,33 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="Setup" id="ec6-x0-upd">
                             <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-3"/>
                             <connections>
-                                <segue destination="mBZ-bg-1VO" kind="show" id="kNs-Ly-SQa"/>
+                                <segue destination="mBZ-bg-1VO" kind="show" identifier="segueToSetup" id="kNs-Ly-SQa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1100"/>
                     <connections>
                         <outlet property="connectedStatusImage" destination="dq8-Nj-BPm" id="WCX-PP-kxZ"/>
+                        <outlet property="feedPumpCycleTimeLabel" destination="PrH-yz-Brr" id="0GR-XN-OLY"/>
+                        <outlet property="feedPumpCycleTimeSlider" destination="t24-4a-fgV" id="4o5-AP-xTz"/>
+                        <outlet property="feedPumpDailyVolumeLabel" destination="Jf0-wM-KcI" id="qim-Az-cTS"/>
+                        <outlet property="feedPumpOnTimeLabel" destination="KCv-tz-Jee" id="0W5-94-P9a"/>
+                        <outlet property="feedPumpOnTimeSlider" destination="xa9-dz-hCh" id="KIr-oM-oDQ"/>
+                        <outlet property="feedPumpTotalTimeLabel" destination="pe7-Ba-fWc" id="SOz-JL-iwT"/>
+                        <outlet property="readSettingButton" destination="yqt-Af-VNm" id="g77-vJ-h7n"/>
+                        <outlet property="recirculationRateLabel" destination="GEe-5u-Soy" id="0qg-2I-xlA"/>
+                        <outlet property="recyclPumpCycleTimeLabel" destination="5dZ-f4-mjS" id="HPV-7T-HlA"/>
+                        <outlet property="recyclPumpCycleTimeSlider" destination="kD9-9t-RIX" id="fzR-Tf-kin"/>
+                        <outlet property="recyclPumpOnTimeLabel" destination="h8G-5d-sg9" id="g5s-z0-ETl"/>
+                        <outlet property="recyclPumpOnTimeSlider" destination="gfr-kl-Bq6" id="9WC-E5-oWq"/>
+                        <outlet property="recyclPumpTotalTimeLabel" destination="Zi6-3L-re2" id="H8y-1s-ff0"/>
+                        <outlet property="scraperPauseTimeLabel" destination="HT4-TU-qMg" id="oWN-ZD-qmE"/>
+                        <outlet property="scraperPauseTimeSlider" destination="2gC-bz-NRX" id="sZO-3r-JpP"/>
+                        <outlet property="scraperRotationSpeedLabel" destination="e0l-gh-8bL" id="7dy-FU-QBA"/>
+                        <outlet property="scraperRotationSpeedSlider" destination="Fhz-ya-zz6" id="sYg-Tw-oby"/>
+                        <outlet property="sendSettingButton" destination="kAf-xP-Q2s" id="oIs-3Q-kwf"/>
                         <outlet property="setupButtonItem" destination="ec6-x0-upd" id="ZXW-Tb-gjR"/>
+                        <outlet property="transfertActivityIndicator" destination="F86-vm-UzP" id="GPh-LA-N6v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZS-eM-IAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -490,7 +518,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VVc-8P-wK7">
-                                        <rect key="frame" x="20" y="20" width="335" height="140"/>
+                                        <rect key="frame" x="20" y="20" width="335" height="210"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="qxL-ap-Ku7">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="35"/>
@@ -578,6 +606,40 @@
                                                     <constraint firstAttribute="height" constant="35" id="vnR-xW-GDI"/>
                                                 </constraints>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="60m-3i-qym">
+                                                <rect key="frame" x="0.0" y="140" width="335" height="35"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom du pilote :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfx-nm-llo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="35"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="pG1-h3-iKS"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="c5T-mH-nsw">
+                                                <rect key="frame" x="0.0" y="175" width="335" height="35"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1eU-Gq-GL9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="35"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="30" id="2p8-LT-qyu"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vR6-zY-Usr">
+                                                        <rect key="frame" x="40" y="0.0" width="295" height="35"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="oWR-hl-vWF"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -605,6 +667,7 @@
                     </view>
                     <connections>
                         <outlet property="feedPumpFlowRateTextField" destination="yez-5j-tkj" id="mj4-Us-bFr"/>
+                        <outlet property="pilotNameLabel" destination="vR6-zY-Usr" id="fmB-wh-1I6"/>
                         <outlet property="recyclPumpFlowRateTextField" destination="j9g-zQ-KeG" id="uai-Gt-Rg9"/>
                     </connections>
                 </viewController>

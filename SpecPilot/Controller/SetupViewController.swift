@@ -10,21 +10,35 @@ import UIKit
 
 class SetupViewController: UIViewController {
 
+    // MARK: - PROPERTIES
+    var pilot: Pilot!
+
     // MARK: - IBOutlet
     @IBOutlet weak var feedPumpFlowRateTextField: UITextField!
     @IBOutlet weak var recyclPumpFlowRateTextField: UITextField!
+    @IBOutlet weak var pilotNameLabel: UILabel!
 
     // MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        feedPumpFlowRateTextField.text = "\(PilotSetting.shared.feedPumpFlowRate)"
-        recyclPumpFlowRateTextField.text = "\(PilotSetting.shared.recyclPumpFlowRate)"
-    }
+        feedPumpFlowRateTextField.text = "\(pilot.feedPump.flowRateInLH)"
+        recyclPumpFlowRateTextField.text = "\(pilot.recyclPump.flowRateInLH)"
+        pilotNameLabel.text = pilot.name
 
+    }
+}
+
+// MARK: - Navigation
+extension SetupViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToSetup" {
+            if let pilotVC = segue.destination as? PilotViewController {
+                pilotVC.pilot.feedPump.flowRateInLH = pilot.feedPump.flowRateInLH
+                pilotVC.pilot.recyclPump.flowRateInLH = pilot.recyclPump.flowRateInLH
+            }
+        }
+    }
 }
 
 // MARK: - KEYBOARD
@@ -41,13 +55,14 @@ extension SetupViewController: UITextFieldDelegate {
     private func resignAllTextField() {
 
         if let feedPumpFlowRateTextFieldNumber = Double(self.feedPumpFlowRateTextField.text!) {
-            PilotSetting.shared.feedPumpFlowRate = feedPumpFlowRateTextFieldNumber
+            pilot.feedPump.flowRateInLH = feedPumpFlowRateTextFieldNumber
         }
         if let recyclPumpFlowRateTextFieldNumber = Double(self.recyclPumpFlowRateTextField.text!) {
-            PilotSetting.shared.recyclPumpFlowRate = recyclPumpFlowRateTextFieldNumber
+            pilot.recyclPump.flowRateInLH = recyclPumpFlowRateTextFieldNumber
         }
 
         feedPumpFlowRateTextField.resignFirstResponder()
         recyclPumpFlowRateTextField.resignFirstResponder()
     }
 }
+// TODO:    - gerer le nom du pilote ou le choix du truc connecté
