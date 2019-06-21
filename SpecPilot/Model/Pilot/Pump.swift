@@ -17,11 +17,11 @@ struct Pump {
         if cycleTimeInS == 0 || onTimeInS == 0 {
             return 0
         } else {
-               return ((((60 * 60 * 24) / cycleTimeInS) * onTimeInS ) / 3600 ).rounded()
+               return (((60 * 60 * 24) / cycleTimeInS) * onTimeInS ) / 3600
         }
     }
 
     var dailyVolumeInL: Double {
-        return (dailyTotalTimeInH * flowRateInLH).rounded()
+        return dailyTotalTimeInH * flowRateInLH
     }
 }

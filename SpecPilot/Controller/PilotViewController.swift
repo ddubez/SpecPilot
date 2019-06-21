@@ -24,6 +24,7 @@ class PilotViewController: UIViewController {
     @IBOutlet weak var feedPumpOnTimeSlider: UISlider!
     @IBOutlet weak var feedPumpTotalTimeLabel: UILabel!
     @IBOutlet weak var feedPumpDailyVolumeLabel: UILabel!
+    @IBOutlet weak var calculatedeffluentFlowRateLabel: UILabel!
 
     @IBOutlet weak var recyclPumpCycleTimeLabel: UILabel!
     @IBOutlet weak var recyclPumpCycleTimeSlider: UISlider!
@@ -118,23 +119,29 @@ class PilotViewController: UIViewController {
     // MARK: - Functions
 
     private func updateView() {
-        feedPumpCycleTimeLabel.text = String(pilot.feedPump.cycleTimeInS) + " s"
+        feedPumpCycleTimeLabel.text = formatDiplayedNumberWithUnit(pilot.feedPump.cycleTimeInS, unit: " s")
         feedPumpCycleTimeSlider.value = Float(pilot.feedPump.cycleTimeInS / 30)
-        feedPumpOnTimeLabel.text = String(pilot.feedPump.onTimeInS) + " s"
+        feedPumpOnTimeLabel.text = formatDiplayedNumberWithUnit(pilot.feedPump.onTimeInS, unit: " s")
         feedPumpOnTimeSlider.value = Float(pilot.feedPump.onTimeInS / 30)
-        feedPumpTotalTimeLabel.text = String(pilot.feedPump.dailyTotalTimeInH) + " h"
-        feedPumpDailyVolumeLabel.text = String(pilot.feedPump.dailyVolumeInL) + " l"
+        feedPumpTotalTimeLabel.text = formatDiplayedNumberWithUnit(pilot.feedPump.dailyTotalTimeInH, unit: " h")
+        feedPumpDailyVolumeLabel.text = formatDiplayedNumberWithUnit(pilot.feedPump.dailyVolumeInL, unit: " l")
 
-        recyclPumpCycleTimeLabel.text = String(pilot.recyclPump.cycleTimeInS) + " s"
+        if let calculedFlowRate = DesignCalculation.shared.effluentsFlowRateInLJ {
+            calculatedeffluentFlowRateLabel.text = formatDiplayedNumberWithUnit(calculedFlowRate, unit: " l/j")
+        } else {
+            calculatedeffluentFlowRateLabel.text = "-"
+        }
+
+        recyclPumpCycleTimeLabel.text = formatDiplayedNumberWithUnit(pilot.recyclPump.cycleTimeInS, unit: " s")
         recyclPumpCycleTimeSlider.value = Float(pilot.recyclPump.cycleTimeInS / 30)
-        recyclPumpOnTimeLabel.text = String(pilot.recyclPump.onTimeInS) + " s"
+        recyclPumpOnTimeLabel.text = formatDiplayedNumberWithUnit(pilot.recyclPump.onTimeInS, unit: " s")
         recyclPumpOnTimeSlider.value = Float(pilot.recyclPump.onTimeInS / 30)
-        recyclPumpTotalTimeLabel.text = String(pilot.recyclPump.dailyTotalTimeInH) + " h"
-        recirculationRateLabel.text = String(pilot.recirculationRate) + " %"
+        recyclPumpTotalTimeLabel.text = formatDiplayedNumberWithUnit(pilot.recyclPump.dailyTotalTimeInH, unit: " h")
+        recirculationRateLabel.text = formatDiplayedNumberWithUnit(pilot.recirculationRate, unit: " %")
 
-        scraperRotationSpeedLabel.text = String(pilot.scraper.rotationSpeedInRpm) + " t/min"
+        scraperRotationSpeedLabel.text = formatDiplayedNumberWithUnit(pilot.scraper.rotationSpeedInRpm, unit: " t/min")
         scraperRotationSpeedSlider.value = Float(pilot.scraper.rotationSpeedInRpm)
-        scraperPauseTimeLabel.text = String(pilot.scraper.pauseTimeInS) + " s"
+        scraperPauseTimeLabel.text = formatDiplayedNumberWithUnit(pilot.scraper.pauseTimeInS, unit: " s")
         scraperPauseTimeSlider.value = Float(pilot.scraper.pauseTimeInS / 30)
     }
 
@@ -142,6 +149,17 @@ class PilotViewController: UIViewController {
         transfertActivityIndicator.isHidden = !communicating
         sendSettingButton.isHidden = communicating
         readSettingButton.isHidden = communicating
+    }
+
+    private func formatDiplayedNumberWithUnit(_ number: Double, unit: String) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+
+        if let formattedNumber = formatter.string(from: NSNumber(value: number)) {
+            return formattedNumber + unit
+        } else {
+            return nil
+        }
     }
 }
 

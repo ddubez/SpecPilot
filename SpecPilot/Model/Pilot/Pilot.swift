@@ -23,7 +23,7 @@ class Pilot {
         if recyclPump.dailyVolumeInL == 0 || feedPump.dailyVolumeInL == 0 {
             return 0
         } else {
-            return ((recyclPump.dailyVolumeInL / feedPump.dailyVolumeInL) * 100).rounded()
+            return (recyclPump.dailyVolumeInL / feedPump.dailyVolumeInL) * 100
         }
     }
 }

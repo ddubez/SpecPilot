@@ -8,15 +8,18 @@
 
 import Foundation
 
-struct DesignCalculation {
+class DesignCalculation {
     // MARK: - Properties
+
+    static let shared = DesignCalculation()
+    private init() {}
+
     var massLoadInKg: Double?
     var effluentsDcoInmgl: Double?
     var effluentsDcoDbo: Double?
     var mudSMInGl: Double?
     var mudMVSInPercent: Double?
     var mudVolumeInL: Double?
-    var mudDcoInMgl: Double?
 
     var reactorMass: Double? {
         guard let mudSMInGlValue = mudSMInGl else {
@@ -39,7 +42,7 @@ struct DesignCalculation {
         }
         return effluentsDcoInmglValue / effluentsDcoDboValue
     }
-    var effluentsVolumeInL: Double? {
+    var effluentsFlowRateInLJ: Double? {
         guard let massLoadInKgValue = massLoadInKg else {
             return nil
         }

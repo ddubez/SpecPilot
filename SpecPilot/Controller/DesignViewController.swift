@@ -14,13 +14,12 @@ class DesignViewController: UIViewController {
     @IBOutlet weak var massLoadInKgTextField: UITextField!
     @IBOutlet weak var effluentsDcoInmglTextField: UITextField!
     @IBOutlet weak var effluentsDcoDboTextField: UITextField!
-    @IBOutlet weak var effluentsVolumeInLLabel: UILabel!
+    @IBOutlet weak var effluentsFlowRateInLJLabel: UILabel!
     @IBOutlet weak var effluentsDboInMglLabel: UILabel!
     @IBOutlet weak var mudSMInGlTextField: UITextField!
     @IBOutlet weak var mudMVSInPercentTextField: UITextField!
     @IBOutlet weak var mudVolumeInLTextField: UITextField!
     @IBOutlet weak var reactorMassMVSLabel: UILabel!
-    @IBOutlet weak var mudDcoInMglTextField: UITextField!
 
     // MARK: - IBAction
     @IBAction func didTapCalculation(_ sender: UIButton) {
@@ -29,7 +28,6 @@ class DesignViewController: UIViewController {
     }
 
     // MARK: - Properties
-    var designCalculation = DesignCalculation()
 
     // MARK: - OverRide functions
     override func viewWillAppear(_ animated: Bool) {
@@ -51,32 +49,31 @@ class DesignViewController: UIViewController {
 
     // MARK: - Functions
     private func catchValues() {
-        designCalculation.massLoadInKg = convertTextInValue(massLoadInKgTextField.text!)
-        designCalculation.effluentsDcoInmgl = convertTextInValue(effluentsDcoInmglTextField.text!)
-        designCalculation.effluentsDcoDbo = convertTextInValue(effluentsDcoDboTextField.text!)
-        designCalculation.mudSMInGl = convertTextInValue(mudSMInGlTextField.text!)
-        designCalculation.mudMVSInPercent = convertTextInValue(mudMVSInPercentTextField.text!)
-        designCalculation.mudVolumeInL = convertTextInValue(mudVolumeInLTextField.text!)
-        designCalculation.mudDcoInMgl = convertTextInValue(mudDcoInMglTextField.text!)
+        DesignCalculation.shared.massLoadInKg = convertTextInValue(massLoadInKgTextField.text!)
+        DesignCalculation.shared.effluentsDcoInmgl = convertTextInValue(effluentsDcoInmglTextField.text!)
+        DesignCalculation.shared.effluentsDcoDbo = convertTextInValue(effluentsDcoDboTextField.text!)
+        DesignCalculation.shared.mudSMInGl = convertTextInValue(mudSMInGlTextField.text!)
+        DesignCalculation.shared.mudMVSInPercent = convertTextInValue(mudMVSInPercentTextField.text!)
+        DesignCalculation.shared.mudVolumeInL = convertTextInValue(mudVolumeInLTextField.text!)
     }
 
     private func updateValues() {
-        if let designCalculationEffluentsDboInMgl = designCalculation.effluentsDboInMgl {
+        if let designCalculationEffluentsDboInMgl = DesignCalculation.shared.effluentsDboInMgl {
             effluentsDboInMglLabel.text = formatDiplayedNumber(designCalculationEffluentsDboInMgl)
         } else {
             effluentsDboInMglLabel.text = "-"
         }
 
-        if let designCalculationReactorMass = designCalculation.reactorMass {
+        if let designCalculationReactorMass = DesignCalculation.shared.reactorMass {
             reactorMassMVSLabel.text = formatDiplayedNumber(designCalculationReactorMass)
         } else {
             reactorMassMVSLabel.text = "-"
         }
 
-        if let designCalculationEffluentsVolumeInL = designCalculation.effluentsVolumeInL {
-            effluentsVolumeInLLabel.text = formatDiplayedNumber(designCalculationEffluentsVolumeInL)
+        if let designCalculationEffluentsVolumeInL = DesignCalculation.shared.effluentsFlowRateInLJ {
+            effluentsFlowRateInLJLabel.text = formatDiplayedNumber(designCalculationEffluentsVolumeInL)
         } else {
-            effluentsVolumeInLLabel.text = "-"
+            effluentsFlowRateInLJLabel.text = "-"
         }
     }
 
@@ -144,7 +141,6 @@ extension DesignViewController: UITextFieldDelegate {
         effluentsDcoDboTextField.resignFirstResponder()
         mudSMInGlTextField.resignFirstResponder()
         mudVolumeInLTextField.resignFirstResponder()
-        mudDcoInMglTextField.resignFirstResponder()
         mudMVSInPercentTextField.resignFirstResponder()
     }
 }
